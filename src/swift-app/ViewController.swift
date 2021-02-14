@@ -16,9 +16,6 @@ class ViewController: UIViewController {
     var inputStream : InputStream!
     var outputStream : OutputStream!
     
-    var temperatureLabel : UILabel!
-    var humidityLabel : UILabel!
-    
     var HOST : NSString?
     
     override func viewDidLoad() {
@@ -52,18 +49,6 @@ class ViewController: UIViewController {
         connect.backgroundColor = .link
         connect.setTitleColor(.white, for: .normal)
         connect.addTarget(self, action: #selector(connectToServer(_:)), for: .touchUpInside)
-        
-        temperatureLabel = UILabel()
-        temperatureLabel.frame = CGRect(x: 20, y: 170+yOffset+inlineOffset*4, width: Int(width), height: 50)
-        temperatureLabel.text = "[TEMPERATURE]: 0.0"
-        temperatureLabel.textColor = .white
-        temperatureLabel.backgroundColor = .black
-        
-        humidityLabel = UILabel()
-        humidityLabel.frame = CGRect(x: 20, y: 200+yOffset+inlineOffset*5, width: Int(width), height: 50)
-        humidityLabel.text = "[HUMIDITY]: 0.0"
-        humidityLabel.textColor = .white
-        humidityLabel.backgroundColor = .black
         
         self.view = uiView
         view.addSubview(messageButton)
